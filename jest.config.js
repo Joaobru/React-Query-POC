@@ -21,7 +21,7 @@ module.exports = {
 		"[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$"
 	],
 	"moduleNameMapper": {
-		"^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+		'\\.(css|sass|scss)$': '<rootDir>/src/__mocks__/styleMock.js',
 		"@src/(.*)": [
 			"<rootDir>/src/$1"
 		]

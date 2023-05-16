@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import App from './App';
 
-describe('App Component', () => {
+describe('MyProfile Component', () => {
 	it('should be able to render the Loading text', () => {
 		const { getByText } = render(<App />);
 
