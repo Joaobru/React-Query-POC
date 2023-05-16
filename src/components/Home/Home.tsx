@@ -2,7 +2,9 @@ import { useQuery } from 'react-query';
 
 import { User } from '@src/types/User';
 
-import MyProfile from './MyProfile';
+import { Repository } from '@src/types/Repository';
+import MyProfile from './components/MyProfile';
+import Repositories from './components/Repositories';
 
 export const Home = () => {
 	const getUser = async (): Promise<User> => {
@@ -12,13 +14,27 @@ export const Home = () => {
 		return user;
 	};
 
-	const { isLoading, error, data } = useQuery('userData', () => getUser());
+	const getRepositories = async (): Promise<Repository[]> => {
+		const response = await fetch('https://api.github.com/users/Joaobru/repos');
+		const repositories = await response.json();
+
+		return repositories;
+	};
+
+	const user = useQuery('userData', () => getUser());
+	const repositories = useQuery('repositoriesData', () => getRepositories());
 
 	return (
 		<>
-			{isLoading && <h2>Loading...</h2>}
-			{error && <h2>An error has occurred:</h2>}
-			{!isLoading && !error && data && <MyProfile user={data} />}
+			{user.isLoading && <h2>Loading...</h2>}
+
+			{user.error && <h2>An error has occurred:</h2>}
+
+			{!user.isLoading && !user.error && user.data && (
+				<MyProfile user={user.data} />
+			)}
+
+			<Repositories repositories={repositories.data} />
 		</>
 	);
 };
