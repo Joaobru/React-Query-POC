@@ -34,7 +34,9 @@ export const Home = () => {
 				<MyProfile user={user.data} />
 			)}
 
-			<Repositories repositories={repositories.data} />
+			{!repositories.isLoading && !repositories.error && repositories.data && (
+				<Repositories repositories={repositories.data} />
+			)}
 		</>
 	);
 };

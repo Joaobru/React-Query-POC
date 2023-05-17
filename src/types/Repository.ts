@@ -3,7 +3,13 @@ export type Repository = {
 	node_id: string;
 	name: string;
 	full_name: string;
+	clone_url: string;
 	private: boolean;
+	description: string;
+	stargazers_count: number;
+	language: string;
+	created_at: string;
+	updated_at: string;
 	owner: {
 		login: string;
 		id: number;
