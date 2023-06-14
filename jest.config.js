@@ -22,6 +22,7 @@ module.exports = {
 	],
 	"moduleNameMapper": {
 		'\\.(css|sass|scss)$': '<rootDir>/src/__mocks__/styleMock.js',
+		'\\.(svg|png)$': '<rootDir>/src/__mocks__/imageMock.js',
 		"@src/(.*)": [
 			"<rootDir>/src/$1"
 		]
