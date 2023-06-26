@@ -62,3 +62,11 @@ export const NameStyled = styled.h3`
 	margin-bottom: 8px;
 	text-transform: capitalize;
 `;
+
+type PropsText = {
+	paddingBottom?: number;
+};
+
+export const TextStyled = styled.p<PropsText>`
+	padding-bottom: ${({ paddingBottom }) => `${paddingBottom}px`};
+`;

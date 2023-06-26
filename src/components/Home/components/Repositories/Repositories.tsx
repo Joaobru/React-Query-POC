@@ -11,6 +11,7 @@ import {
 	SearchField,
 	EmptyDataImgStyled,
 	NameStyled,
+	TextStyled,
 } from './styled';
 
 type Props = {
@@ -40,15 +41,15 @@ export const Repositories = ({ repositories }: Props) => {
 							<CardStyled key={repo.id}>
 								<div>
 									<NameStyled>{repo.name}</NameStyled>
-									<p>{repo.description}</p>
-									<p>{repo.language}</p>
-									<p>
+									<TextStyled paddingBottom={4}>{repo.description}</TextStyled>
+									<TextStyled paddingBottom={4}>{repo.language}</TextStyled>
+									<TextStyled paddingBottom={4}>
 										Criado em: {new Date(repo.created_at).toLocaleDateString()}
-									</p>
-									<p>
+									</TextStyled>
+									<TextStyled paddingBottom={4}>
 										Atualizado em:{' '}
 										{new Date(repo.updated_at).toLocaleDateString()}
-									</p>
+									</TextStyled>
 									<div>
 										<a href={repo.clone_url} target="_blank" rel="noreferrer">
 											Ver no github
